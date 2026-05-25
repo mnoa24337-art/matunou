@@ -288,10 +288,4 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-selects.forEach(sel => {
-  sel.addEventListener("change", calc);
-});
-
-
-calc();
     </html>
