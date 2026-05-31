@@ -157,7 +157,20 @@
   <p id="message"></p>
      </div> 
 <script>
-         
+async function sendData() {
+
+  const data = {
+    name: document.getElementById("name").value,
+    age: document.getElementById("age").value
+  };
+
+  await fetch("(https://script.google.com/macros/s/AKfycbwLjh_mmrfv_R5EOiWxLz_k8pIftUyhu4unAGOteacVlxnEjzgwhCL2J7UXGskJXpvgJQ/exec)", {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
+
+  alert("保存しました！");
+}
 // ===== 要素取得 =====
 const form = document.getElementById("myForm");
 const msg = document.getElementById("message");
