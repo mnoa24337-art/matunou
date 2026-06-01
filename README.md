@@ -161,7 +161,7 @@ async function sendData() {
 
   const data = {
     name: document.getElementById("name").value,
-    age: document.getElementById("age").value
+    firstname: document.getElementById("firstname").value
   };
 
   await fetch("(https://script.google.com/macros/s/AKfycbwLjh_mmrfv_R5EOiWxLz_k8pIftUyhu4unAGOteacVlxnEjzgwhCL2J7UXGskJXpvgJQ/exec)", {
