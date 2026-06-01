@@ -243,36 +243,7 @@ function loadProgress() {
   });
 }
 
-// ===== 注文済みチェック =====
-function checkSubmitted() {
-  if (localStorage.getItem("ordered")) {
-    form.querySelectorAll("input, select, button").forEach(el => {
-      el.disabled = true;
-    });
-    msg.textContent = "すでに注文済みです";
-  }
-}
 
-// ===== リセット =====
-function clearData() {
-  localStorage.removeItem("orderData");
-  localStorage.removeItem("ordered");
-
-  fields.forEach(el => {
-    if (el.type === "checkbox") {
-      el.checked = false;
-    } else if (el.tagName === "SELECT") {
-      el.value = "0";
-    } else {
-      el.value = "";
-    }
-
-    el.disabled = false;
-  });
-
-  msg.textContent = "";
-  calc();
-}
 
 // ===== イベント設定 =====
 fields.forEach(el => {
