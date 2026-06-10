@@ -13,7 +13,7 @@
          <div class="nearlyall">
         購入数
         <br> <br>
-         <label for="RadishPickled"> 大根の酢漬（３５０円）</label>
+         <label for="RadishPickled">大根の酢漬（３５０円）</label>
            <br>
         <select name="RadishPickled" id="RadishPickled">
           <option value="0" selected>0</option>
@@ -152,7 +152,7 @@
         
            
 <br><br>
-        <label for="email"> メールアドレス</label>
+        <label for="email">メールアドレス</label>
         <br> 
         <input type="email" id="email" required><br><br>
        
