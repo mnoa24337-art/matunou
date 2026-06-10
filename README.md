@@ -9,10 +9,12 @@
   
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
-      <form id="myForm">
+      <form action="https://script.google.com/macros/s/AKfycbzQxN5coKWzLcZe--skSiPci1Bl_xcyaU3pBV1nsV2NnbVs6rwReM_CIK5-lWrPU-MFSg/exec" method="POST">
          <div class="nearlyall">
         購入数
-        <br> <br>大根の酢漬（３５０円）<br>
+        <br> <br>
+         <label for="RadishPickled"> 大根の酢漬（３５０円）</label>
+           <br>
         <select name="RadishPickled" id="RadishPickled">
           <option value="0" selected>0</option>
           <option value="1">1</option> 
@@ -20,7 +22,9 @@
           <option value="3">3</option> 
         </select> 
         個
-        <br> <br>大根の醤油漬（３５０円）<br>
+        <br> <br>
+           <label for="RadishSoySauce">大根の醤油漬（３５０円）</label>
+           <br>
         <select name="RadishSoySauce" id="RadishSoySauce"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
@@ -28,7 +32,9 @@
           <option value="3">3</option> 
         </select> 
         個
-        <br> <br>大根のピリ辛醤油漬（３５０円）<br> 
+        <br> <br>
+           <label for="RadishSpicySoySauce">大根のピリ辛醤油漬（３５０円）</label>
+           <br> 
          <select name="RadishSpicySoySauce" id="RadishSpicySoySauce"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
@@ -36,7 +42,8 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br> <br>いちごジャム（４５０円）
+        <br> <br>
+             <label for="StrawberryJam">いちごジャム（４５０円）</label>
            <br>
          <select name="StrawberryJam" id="StrawberryJam"> 
           <option value="0" selected>0</option>
@@ -45,7 +52,8 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>いちじくジャム（４５０円）
+        <br><br>
+               <label for="FigJam">いちじくジャム（４５０円）</label>
            <br>
         <select name="FigJam" id="FigJam"> 
           <option value="0" selected>0</option> 
@@ -54,7 +62,9 @@
           <option value="3">3</option> 
         </select> 
         個
-        <br><br>さつまいもジャム（４５０円）<br> 
+        <br><br>
+                 <label for="SweetpotatoJam">さつまいもジャム（４５０円）</label>
+           <br> 
         <select name="SweetpotatoJam" id="SweetpotatoJam"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
@@ -62,7 +72,9 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>マーマレード（４５０円）<br> 
+        <br><br>
+                   <label for="marmalade">マーマレード（４５０円）</label>
+           <br> 
          <select name="marmalade" id="marmalade"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
@@ -70,7 +82,9 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>味噌（５００円）<br> 
+        <br><br>
+                     <label for="miso">味噌（５００円）</label>
+           <br> 
           <select name="miso" id="miso"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
@@ -78,7 +92,9 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>キムチ（５００円）<br> 
+        <br><br>
+                       <label for="kimchi">キムチ（５００円）</label>
+                       <br> 
          <select name="kimchi" id="kimchi"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
@@ -86,7 +102,9 @@
           <option value="3">3</option> 
         </select> 
         個
-        <br><br>カクテキキムチ（５００円）<br> 
+        <br><br>
+      <label for="kakuteki">カクテキキムチ（５００円）</label>
+      <br> 
         <select name="kakuteki" id="kakuteki"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
@@ -94,7 +112,9 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>たけのこの水煮（１０００円）<br> 
+        <br><br>
+      <label for="bamboo">たけのこの水煮（１０００円）</label>
+      <br> 
         <select name="bamboo" id="bamboo"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
@@ -103,12 +123,13 @@
         </select>  
         個
 <br>合計：<span id="out">0</span> 円
-       <br><br> お名前<br>
+       <br><br> 
+        お名前<br>
 
 <div class="name-row">
 
   <div class="field">
-    <span>セイ</span>
+    <label for="name">セイ</label>
     <input type="text"
       style="width:80px;"
       id="name"
@@ -118,7 +139,7 @@
      </div>
 
   <div class="field">
-    <span>メイ</span>
+    <label for="firstname">メイ</label>
     <input type="text"
       style="width:80px;"
       id="firstname"
@@ -131,7 +152,8 @@
         
            
 <br><br>
-        メールアドレス<br> 
+        <label for="email"> メールアドレス</label>
+        <br> 
         <input type="email" id="email" required><br><br>
        
 <br><br>
