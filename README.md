@@ -15,7 +15,7 @@
         <br> <br>
          <label for="RadishPickled">大根の酢漬（３５０円）</label>
            <br>
-        <select name="RadishPickled" id="RadishPickled">
+        <select name="大根の酢漬" id="RadishPickled">
           <option value="0" selected>0</option>
           <option value="1">1</option> 
           <option value="2">2</option> 
