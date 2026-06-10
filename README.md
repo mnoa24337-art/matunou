@@ -25,7 +25,7 @@
         <br> <br>
            <label for="RadishSoySauce">大根の醤油漬（３５０円）</label>
            <br>
-        <select name="RadishSoySauce" id="RadishSoySauce"> 
+        <select name="大根の醤油漬" id="RadishSoySauce"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -35,7 +35,7 @@
         <br> <br>
            <label for="RadishSpicySoySauce">大根のピリ辛醤油漬（３５０円）</label>
            <br> 
-         <select name="RadishSpicySoySauce" id="RadishSpicySoySauce"> 
+         <select name="大根のピリ辛醤油漬" id="RadishSpicySoySauce"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -45,7 +45,7 @@
         <br> <br>
              <label for="StrawberryJam">いちごジャム（４５０円）</label>
            <br>
-         <select name="StrawberryJam" id="StrawberryJam"> 
+         <select name="いちごジャム" id="StrawberryJam"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -55,7 +55,7 @@
         <br><br>
                <label for="FigJam">いちじくジャム（４５０円）</label>
            <br>
-        <select name="FigJam" id="FigJam"> 
+        <select name="いちじくジャム" id="FigJam"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option>
           <option value="2">2</option>
@@ -65,7 +65,7 @@
         <br><br>
                  <label for="SweetpotatoJam">さつまいもジャム（４５０円）</label>
            <br> 
-        <select name="SweetpotatoJam" id="SweetpotatoJam"> 
+        <select name="さつまいもジャム" id="SweetpotatoJam"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -75,7 +75,7 @@
         <br><br>
                    <label for="marmalade">マーマレード（４５０円）</label>
            <br> 
-         <select name="marmalade" id="marmalade"> 
+         <select name="マーマレード" id="marmalade"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -85,7 +85,7 @@
         <br><br>
                      <label for="miso">味噌（５００円）</label>
            <br> 
-          <select name="miso" id="miso"> 
+          <select name="味噌" id="miso"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -95,7 +95,7 @@
         <br><br>
                        <label for="kimchi">キムチ（５００円）</label>
                        <br> 
-         <select name="kimchi" id="kimchi"> 
+         <select name="キムチ" id="kimchi"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -105,7 +105,7 @@
         <br><br>
       <label for="kakuteki">カクテキキムチ（５００円）</label>
       <br> 
-        <select name="kakuteki" id="kakuteki"> 
+        <select name="カクテキキムチ" id="kakuteki"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -115,7 +115,7 @@
         <br><br>
       <label for="bamboo">たけのこの水煮（１０００円）</label>
       <br> 
-        <select name="bamboo" id="bamboo"> 
+        <select name="たけのこの水煮" id="bamboo"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -152,7 +152,8 @@
         
            
 <br><br>
-          <label for="email">メールアドレス:</label>
+          <label for="email">メールアドレス</label>
+          <br>
   <input type="email" id="email" name="メールアドレス" required><br><br>
        
 <br><br>
