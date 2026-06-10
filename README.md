@@ -152,9 +152,8 @@
         
            
 <br><br>
-        <label for="email">メールアドレス</label>
-        <br> 
-        <input type="email" id="email" required><br><br>
+          <label for="email">メールアドレス:</label>
+  <input type="email" id="email" name="メールアドレス" required><br><br>
        
 <br><br>
 
