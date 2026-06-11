@@ -132,7 +132,6 @@
     <label for="name">セイ</label>
     <input type="text" 
       name="セイ"
-      style=width: 80px;
       id="name"
       placeholder="マツノウ"
       pattern="^[ァ-ヶー]+$"
@@ -143,7 +142,6 @@
     <label for="firstname">メイ</label>
     <input type="text"
       name="メイ"
-      style=width: 80px;
       id="firstname"
       placeholder="タロウ"
       pattern="^[ァ-ヶー]+$"
