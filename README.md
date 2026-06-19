@@ -179,20 +179,7 @@
   <p id="message"></p>
      </div> 
 <script>
-async function sendData() {
 
-  const data = {
-    name: document.getElementById("name").value,
-    firstname: document.getElementById("firstname").value
-  };
-
-  await fetch("https://script.google.com/macros/s/AKfycbyfN-Y6Glb5cRguH6dYU-t4H2mEeikMZ2Q3lDLm0nEltODttOPIxWbJ9QPW2A7LFrR7AA/exec", {
-    method: "POST",
-    body: JSON.stringify(data)
-  });
-
-  alert("保存しました！");
-}
 // ===== 要素取得 =====
 const form = document.getElementById("myForm");
 const msg = document.getElementById("message");
