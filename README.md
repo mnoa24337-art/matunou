@@ -247,6 +247,10 @@ function saveProgress() {
 }
 
 // ===== 復元 =====
+window.addEventListener("DOMContentLoaded", () => {
+  loadProgress();
+  calc();
+});
 function loadProgress() {
   const saved = localStorage.getItem("orderData");
   if (!saved) return;
