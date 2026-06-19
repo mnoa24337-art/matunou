@@ -186,7 +186,7 @@ async function sendData() {
     firstname: document.getElementById("firstname").value
   };
 
-  await fetch("(https://script.google.com/macros/s/AKfycbwLjh_mmrfv_R5EOiWxLz_k8pIftUyhu4unAGOteacVlxnEjzgwhCL2J7UXGskJXpvgJQ/exec)", {
+  await fetch("https://script.google.com/macros/s/AKfycbyfN-Y6Glb5cRguH6dYU-t4H2mEeikMZ2Q3lDLm0nEltODttOPIxWbJ9QPW2A7LFrR7AA/exec", {
     method: "POST",
     body: JSON.stringify(data)
   });
