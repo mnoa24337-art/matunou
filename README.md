@@ -178,6 +178,7 @@
   </form> 
   <p id="message"></p>
      </div> 
+     </html>
 <script>
 
 // ===== 要素取得 =====
@@ -283,4 +284,4 @@ window.addEventListener("DOMContentLoaded", () => {
   checkSubmitted();
 });
 </script>
-</html>
+
