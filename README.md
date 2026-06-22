@@ -270,7 +270,6 @@ fields.forEach(el => {
 
 // ===== 送信処理 =====
 form.addEventListener("submit", function(e) {
-  e.preventDefault();
 
   localStorage.setItem("ordered", "true");
 
