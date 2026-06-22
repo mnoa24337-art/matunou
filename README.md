@@ -269,10 +269,9 @@ fields.forEach(el => {
 });
 
 // ===== 送信処理 =====
-form.addEventListener("submit", function(e) {
-
+form.addEventListener("submit", function() {
   localStorage.setItem("ordered", "true");
-
+});
   msg.textContent = "注文が完了しました";
   checkSubmitted();
 });
