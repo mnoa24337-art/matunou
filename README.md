@@ -296,9 +296,7 @@ fields.forEach(el => {
 // ===== 送信処理 =====
 form.addEventListener("submit", function() {
   localStorage.setItem("ordered", "true");
-});
   msg.textContent = "注文が完了しました";
-  checkSubmitted();
 });
 
 // ===== 初期化 =====
