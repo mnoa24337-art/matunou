@@ -9,7 +9,9 @@
   
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
-      <form action="https://script.google.com/macros/s/AKfycbwE4rE7MZaUi0D_vcgPrf4fIb6LO-4O-xDjFGIe6z8SRgYYdlSh51Z9T2XFA-PZwKlVBQ/exec" method="POST">
+     <form id="myForm"
+      action="https://script.google.com/macros/s/AKfycbwE4rE7MZaUi0D_vcgPrf4fIb6LO-4O-xDjFGIe6z8SRgYYdlSh51Z9T2XFA-PZwKlVBQ/exec"
+      method="POST">
          <div class="nearlyall">
         購入数
         <br> <br>
@@ -180,30 +182,13 @@
      </div> 
      </html>
 <script>
-// ⚠️ 新しいデプロイで発行された、末尾が「/exec」のURLを貼り付ける
-const gasUrl = "https://script.google.com/macros/s/AKfycbwE4rE7MZaUi0D_vcgPrf4fIb6LO-4O-xDjFGIe6z8SRgYYdlSh51Z9T2XFA-PZwKlVBQ/exec"; 
+const form = document.getElementById("myForm");
 
-fetch(gasUrl, {
-  method: "POST",
-  mode: "cors",                 // 異なるドメインへの通信を許可する設定
-  headers: {
-    "Content-Type": "text/plain" // GASで受信エラーを起こさないための定番設定
-  },
-  body: JSON.stringify(formData) // データをJSON文字列に変換して送信
-})
-.then(response => response.json())
-.then(data => {
-  if (data.result === "success") {
-    alert(data.message); // 「ご注文完了しました」を表示
-  } else {
-    alert("GAS側エラー: " + data.error);
-  }
-})
-.catch(error => {
-  console.error("通信失敗:", error);
-  alert("ネットワークエラーが発生しました。");
+form.addEventListener("submit", function() {
+
+  localStorage.setItem("ordered", "true");
+
 });
-
 
 // ===== 要素取得 =====
 const form = document.getElementById("myForm");
