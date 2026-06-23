@@ -287,7 +287,6 @@ form.addEventListener("submit", function() {
 window.addEventListener("DOMContentLoaded", () => {
   loadProgress();
   calc();
-  checkSubmitted();
 });
 </script>
 
