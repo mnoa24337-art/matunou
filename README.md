@@ -191,7 +191,6 @@ form.addEventListener("submit", function() {
 });
 
 // ===== 要素取得 =====
-const form = document.getElementById("myForm");
 const msg = document.getElementById("message");
 const result = document.getElementById("out");
 const fields = document.querySelectorAll("input, select");
