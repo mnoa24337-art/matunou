@@ -180,6 +180,30 @@
      </div> 
      </html>
 <script>
+// ⚠️ 新しいデプロイで発行された、末尾が「/exec」のURLを貼り付ける
+const gasUrl = "https://script.google.com/macros/s/AKfycbwE4rE7MZaUi0D_vcgPrf4fIb6LO-4O-xDjFGIe6z8SRgYYdlSh51Z9T2XFA-PZwKlVBQ/exec"; 
+
+fetch(gasUrl, {
+  method: "POST",
+  mode: "cors",                 // 異なるドメインへの通信を許可する設定
+  headers: {
+    "Content-Type": "text/plain" // GASで受信エラーを起こさないための定番設定
+  },
+  body: JSON.stringify(formData) // データをJSON文字列に変換して送信
+})
+.then(response => response.json())
+.then(data => {
+  if (data.result === "success") {
+    alert(data.message); // 「ご注文完了しました」を表示
+  } else {
+    alert("GAS側エラー: " + data.error);
+  }
+})
+.catch(error => {
+  console.error("通信失敗:", error);
+  alert("ネットワークエラーが発生しました。");
+});
+
 
 // ===== 要素取得 =====
 const form = document.getElementById("myForm");
