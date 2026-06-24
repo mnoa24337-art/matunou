@@ -10,7 +10,7 @@
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
      <form id="myForm"
-      action="https://script.google.com/macros/s/AKfycbxGUdAb1BqGn8OklawlQPu0Rlp9vUiV6FxfzqO0Trt-Bcw0LeIP1jhMswaLjfl7JyCV7w/exec"
+      action="https://script.google.com/macros/s/AKfycbxvnuEt100FzrflcktC54rBCuoMQ0Ce8kIFVu0QODpI4Kf3TRWU7Cx-9_Kz9DhnLoOMVA/exec"
       method="POST">
          <div class="nearlyall">
         購入数
