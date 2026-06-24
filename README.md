@@ -10,7 +10,7 @@
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
      <form id="myForm"
-      action="https://script.google.com/macros/s/AKfycbzBlvp43jVa6JlXkPc5yk0QcQ9Q2CBlbLEbeNhff-uJ34zKlXTA24BA-eAHWrE6NxdARw/exec"
+      action="https://script.google.com/macros/s/AKfycbx8BXyFr6C3bOWC-OcU71u8EBDwLeX10rh1vneFPXu2iTK0Sp6TrFrU4gHczPLzZc5bEA/exec"
       method="POST">
          <div class="nearlyall">
         購入数
@@ -283,21 +283,19 @@ form.addEventListener("submit", function() {
   msg.textContent = "注文が完了しました";
 });
 
+
 // ===== 初期化 =====
 window.addEventListener("DOMContentLoaded", () => {
   loadProgress();
   calc();
+});
 
-
-
-
+// ===== 保存データ削除 =====
 function clearData() {
-
   localStorage.removeItem("orderData");
   localStorage.removeItem("ordered");
 
   location.reload();
-
 }
 </script>
 
