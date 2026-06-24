@@ -287,6 +287,17 @@ form.addEventListener("submit", function() {
 window.addEventListener("DOMContentLoaded", () => {
   loadProgress();
   calc();
-});
+
+
+
+
+function clearData() {
+
+  localStorage.removeItem("orderData");
+  localStorage.removeItem("ordered");
+
+  location.reload();
+
+}
 </script>
 
