@@ -179,8 +179,7 @@
         <br><button type="submit">注文する</button> 
   </form> 
   <p id="message"></p>
-     </div> 
-     </html>
+   
 <script>
 const form = document.getElementById("myForm");
 
@@ -298,4 +297,6 @@ function clearData() {
   location.reload();
 }
 </script>
+
+</html>
 
