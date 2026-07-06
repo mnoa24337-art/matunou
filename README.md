@@ -178,6 +178,7 @@
     同意する</div>
         <br><button type="submit">注文する</button> 
         </div>
+        <input type="hidden" name="合計" id="totalPrice">
   </form> 
   <p id="message"></p>
    
@@ -220,6 +221,7 @@ function calc() {
 
     const qty = Number(el.value) || 0;
     total += prices[id] * qty;
+    document.getElementById("totalPrice").value = total;
   });
 
   result.textContent = total.toLocaleString();
