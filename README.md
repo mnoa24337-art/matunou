@@ -292,10 +292,20 @@ fields.forEach(el => {
   });
 });
 
+  window.addEventListener("DOMContentLoaded", () => {
+  loadProgress();
+  calc();
+  updateFullName();
+});
 // ===== 送信処理 =====
 form.addEventListener("submit", function() {
+
+  updateFullName();
+  calc();
+
   localStorage.setItem("ordered", "true");
   msg.textContent = "注文が完了しました";
+
 });
 
 
