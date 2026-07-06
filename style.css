@@ -25,9 +25,10 @@ select{
 
 .policy{font-size : 40px;
      }
-select{
-  width:30px;
-  height:30px;
+#agree {
+  transform: scale(1.8);
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 
