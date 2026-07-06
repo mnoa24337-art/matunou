@@ -172,10 +172,10 @@
   <br>・商品に関する必要なご連絡 
 　<br><br>お客様の個人情報は、法令に基づく場合を除き、事前の同意なく第三者へ提供することはありません。 
 また、個人情報は利用目的が達成され次第、適切な方法で管理・削除いたします。 
-   </div>
-  </div><br><input type="checkbox" id="agree" name="agree" required>
+   
+  <br><input type="checkbox" id="agree" name="agree" required>
 
-    同意する
+    同意する</div>
         <br><button type="submit">注文する</button> 
   </form> 
   <p id="message"></p>
