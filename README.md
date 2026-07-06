@@ -149,6 +149,7 @@
       pattern="^[ァ-ヶー]+$"
       required>
   </div>
+  <input type="hidden" name="お名前" id="fullName">
 
 </div>
         
@@ -183,6 +184,14 @@
   <p id="message"></p>
    
 <script>
+function updateFullName() {
+  const sei = document.getElementById("name").value;
+  const mei = document.getElementById("firstname").value;
+
+  document.getElementById("fullName").value =
+    sei + " " + mei;
+}
+  
 const form = document.getElementById("myForm");
 
 form.addEventListener("submit", function() {
@@ -274,9 +283,13 @@ fields.forEach(el => {
   el.addEventListener("change", () => {
     calc();
     saveProgress();
+    updateFullName();
   });
 
-  el.addEventListener("input", saveProgress);
+  el.addEventListener("input", () => {
+    saveProgress();
+    updateFullName();
+  });
 });
 
 // ===== 送信処理 =====
