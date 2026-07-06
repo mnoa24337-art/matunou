@@ -177,6 +177,7 @@
 
     同意する</div>
         <br><button type="submit">注文する</button> 
+        </div>
   </form> 
   <p id="message"></p>
    
