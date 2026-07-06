@@ -298,5 +298,4 @@ function clearData() {
 }
 </script>
 
-</html>
 
