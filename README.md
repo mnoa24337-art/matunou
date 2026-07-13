@@ -308,6 +308,35 @@ form.addEventListener("submit", function() {
 });
 
 
+
+let sending = false;
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  // すでに送信中なら何もしない
+  if (sending) return;
+  sending = true;
+
+  const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = "送信中...";
+
+  try {
+    await sendData();   // GASへ送信する処理
+    msg.textContent = "注文が完了しました";
+  } catch (err) {
+    alert("送信に失敗しました。");
+
+    // 失敗したらもう一度押せるようにする
+    sending = false;
+    submitButton.disabled = false;
+    submitButton.textContent = "注文する";
+  }
+});
+
+  
+
 // ===== 初期化 =====
 window.addEventListener("DOMContentLoaded", () => {
   loadProgress();
