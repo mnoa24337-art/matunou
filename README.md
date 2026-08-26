@@ -28,7 +28,7 @@
 
   <form
     id="myForm"
-    action="https://script.google.com/macros/library/d/18xZfJZF0X8aTV7pb8-LMdAwU82IuRJPNs5qxIGB-lw3TedPXcZmq4P11/16"
+    action="https://script.google.com/macros/s/AKfycbxvnuEt100FzrflcktC54rBCuoMQ0Ce8kIFVu0QODpI4Kf3TRWU7Cx-9_Kz9DhnLoOMVA/exec"
     method="POST"
   >
 
@@ -251,7 +251,7 @@
 // ========================================
 
 const GAS_URL =
-  "https://script.google.com/macros/library/d/18xZfJZF0X8aTV7pb8-LMdAwU82IuRJPNs5qxIGB-lw3TedPXcZmq4P11/16";
+  "https://script.google.com/macros/s/AKfycbxvnuEt100FzrflcktC54rBCuoMQ0Ce8kIFVu0QODpI4Kf3TRWU7Cx-9_Kz9DhnLoOMVA/exec";
 
 
 // ========================================
