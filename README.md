@@ -305,38 +305,22 @@ async function loadProducts() {
     const data =
       await response.json();
 
-
-    // GASからエラーが返された場合
-    if (
-      !Array.isArray(data)
-    ) {
-
+    if (!Array.isArray(data)) {
       throw new Error(
         data.error ||
         "商品情報を取得できませんでした。"
       );
-
     }
-
 
     products = data;
 
-
-    // 商品表示
     createProducts();
 
-
-    // 保存データ復元
     loadProgress();
 
-
-    // 合計計算
     calc();
 
-
-    // 名前更新
     updateFullName();
-
 
   } catch (error) {
 
