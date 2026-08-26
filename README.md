@@ -128,6 +128,35 @@
 
 
       <!-- ============================== -->
+      <!-- お渡し時間 -->
+      <!-- ============================== -->
+
+      <label for="pickupTime">
+        お渡し時間
+      </label>
+
+      <br>
+
+
+      <select
+        id="pickupTime"
+        name="お渡し時間"
+        required
+      >
+
+        <option value="">
+          お渡し時間を選択してください
+        </option>
+
+      </select>
+
+
+      <br>
+      <br>
+      <br>
+
+
+      <!-- ============================== -->
       <!-- メール -->
       <!-- ============================== -->
 
@@ -259,22 +288,39 @@ const GAS_URL =
 // ========================================
 
 const form =
-  document.getElementById("myForm");
+  document.getElementById(
+    "myForm"
+  );
+
 
 const productsElement =
-  document.getElementById("products");
+  document.getElementById(
+    "products"
+  );
+
 
 const result =
-  document.getElementById("out");
+  document.getElementById(
+    "out"
+  );
+
 
 const totalPrice =
-  document.getElementById("totalPrice");
+  document.getElementById(
+    "totalPrice"
+  );
+
 
 const message =
-  document.getElementById("message");
+  document.getElementById(
+    "message"
+  );
+
 
 const submitButton =
-  document.getElementById("submitButton");
+  document.getElementById(
+    "submitButton"
+  );
 
 
 // 商品データ
@@ -294,37 +340,72 @@ async function loadProducts() {
   try {
 
     const response =
-      await fetch(GAS_URL + "?mode=products");
+      await fetch(
+        GAS_URL +
+        "?mode=products"
+      );
+
 
     if (!response.ok) {
+
       throw new Error(
         "商品情報の取得に失敗しました。"
       );
+
     }
+
 
     const data =
       await response.json();
 
-    if (!Array.isArray(data)) {
+
+    if (
+      !data ||
+      !Array.isArray(
+        data.products
+      )
+    ) {
+
       throw new Error(
         data.error ||
         "商品情報を取得できませんでした。"
       );
+
     }
 
-    products = data;
 
+    // 商品データ
+    products =
+      data.products;
+
+
+    // お渡し時間
+    createPickupTimes(
+      data.pickupTimes || []
+    );
+
+
+    // 商品一覧
     createProducts();
 
+
+    // 保存データ復元
     loadProgress();
 
+
+    // 合計計算
     calc();
 
+
+    // フルネーム
     updateFullName();
 
   } catch (error) {
 
-    console.error(error);
+    console.error(
+      error
+    );
+
 
     productsElement.textContent =
       "商品情報の読み込みに失敗しました。";
@@ -335,14 +416,103 @@ async function loadProducts() {
 
 
 // ========================================
+// お渡し時間一覧を作る
+// ========================================
+
+function createPickupTimes(
+  pickupTimes
+) {
+
+  const select =
+    document.getElementById(
+      "pickupTime"
+    );
+
+
+  if (!select) return;
+
+
+  // 初期化
+  select.innerHTML =
+    "";
+
+
+  // 初期選択肢
+  const firstOption =
+    document.createElement(
+      "option"
+    );
+
+
+  firstOption.value =
+    "";
+
+
+  firstOption.textContent =
+    "お渡し時間を選択してください";
+
+
+  firstOption.selected =
+    true;
+
+
+  select.appendChild(
+    firstOption
+  );
+
+
+  // 時間一覧
+  pickupTimes.forEach(
+    time => {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        time;
+
+
+      option.textContent =
+        time;
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  // 保存
+  select.addEventListener(
+    "change",
+    () => {
+
+      saveProgress();
+
+    }
+  );
+
+}
+
+
+// ========================================
 // 商品一覧を作る
 // ========================================
 
 function createProducts() {
 
-  productsElement.innerHTML = "";
+  productsElement.innerHTML =
+    "";
 
-  if (products.length === 0) {
+
+  if (
+    products.length === 0
+  ) {
 
     productsElement.textContent =
       "現在、商品がありません。";
@@ -353,19 +523,28 @@ function createProducts() {
 
 
   const title =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   title.textContent =
     "購入数";
 
-  productsElement.appendChild(title);
+
+  productsElement.appendChild(
+    title
+  );
 
 
   products.forEach(
     (product, index) => {
 
       const wrapper =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
+
 
       wrapper.className =
         "product";
@@ -376,7 +555,9 @@ function createProducts() {
       // ========================================
 
       const label =
-        document.createElement("label");
+        document.createElement(
+          "label"
+        );
 
 
       label.textContent =
@@ -384,7 +565,8 @@ function createProducts() {
 
 
       const id =
-        "product_" + index;
+        "product_" +
+        index;
 
 
       label.setAttribute(
@@ -393,11 +575,15 @@ function createProducts() {
       );
 
 
-      wrapper.appendChild(label);
+      wrapper.appendChild(
+        label
+      );
 
 
       wrapper.appendChild(
-        document.createElement("br")
+        document.createElement(
+          "br"
+        )
       );
 
 
@@ -405,10 +591,14 @@ function createProducts() {
       // 注文受付終了
       // ========================================
 
-      if (product.soldOut) {
+      if (
+        product.soldOut
+      ) {
 
         const soldOut =
-          document.createElement("span");
+          document.createElement(
+            "span"
+          );
 
 
         soldOut.textContent =
@@ -423,7 +613,6 @@ function createProducts() {
           soldOut
         );
 
-
       } else {
 
         // ========================================
@@ -431,7 +620,9 @@ function createProducts() {
         // ========================================
 
         const select =
-          document.createElement("select");
+          document.createElement(
+            "select"
+          );
 
 
         select.id =
@@ -450,8 +641,7 @@ function createProducts() {
           product.max;
 
 
-        // 上限がある場合
-        // 残り数を超えないようにする
+        // 上限あり
         if (
           product.remaining !== null
         ) {
@@ -476,7 +666,9 @@ function createProducts() {
         ) {
 
           const option =
-            document.createElement("option");
+            document.createElement(
+              "option"
+            );
 
 
           option.value =
@@ -487,8 +679,13 @@ function createProducts() {
             i;
 
 
-          if (i === 0) {
-            option.selected = true;
+          if (
+            i === 0
+          ) {
+
+            option.selected =
+              true;
+
           }
 
 
@@ -552,7 +749,9 @@ function createProducts() {
 
 
       productsElement.appendChild(
-        document.createElement("br")
+        document.createElement(
+          "br"
+        )
       );
 
     }
@@ -575,14 +774,18 @@ function calc() {
 
       const select =
         document.getElementById(
-          "product_" + index
+          "product_" +
+          index
         );
+
 
       if (!select) return;
 
 
       const quantity =
-        Number(select.value) || 0;
+        Number(
+          select.value
+        ) || 0;
 
 
       total +=
@@ -610,16 +813,23 @@ function calc() {
 function updateFullName() {
 
   const sei =
-    document.getElementById("name").value;
+    document.getElementById(
+      "name"
+    ).value;
+
 
   const mei =
-    document.getElementById("firstname").value;
+    document.getElementById(
+      "firstname"
+    ).value;
 
 
   document.getElementById(
     "fullName"
   ).value =
-    sei + " " + mei;
+    sei +
+    " " +
+    mei;
 
 }
 
@@ -639,8 +849,10 @@ function saveProgress() {
 
       const select =
         document.getElementById(
-          "product_" + index
+          "product_" +
+          index
         );
+
 
       if (select) {
 
@@ -674,6 +886,21 @@ function saveProgress() {
     ).value;
 
 
+  // お渡し時間
+  const pickupTime =
+    document.getElementById(
+      "pickupTime"
+    );
+
+
+  if (pickupTime) {
+
+    data.pickupTime =
+      pickupTime.value;
+
+  }
+
+
   // 同意
   data.agree =
     document.getElementById(
@@ -683,7 +910,9 @@ function saveProgress() {
 
   localStorage.setItem(
     "orderData",
-    JSON.stringify(data)
+    JSON.stringify(
+      data
+    )
   );
 
 }
@@ -707,31 +936,45 @@ function loadProgress() {
   try {
 
     const data =
-      JSON.parse(saved);
+      JSON.parse(
+        saved
+      );
 
+
+    // ========================================
+    // 商品
+    // ========================================
 
     products.forEach(
       (product, index) => {
 
         const select =
           document.getElementById(
-            "product_" + index
+            "product_" +
+            index
           );
 
 
         if (
           select &&
-          data[select.id] !== undefined
+          data[select.id] !==
+          undefined
         ) {
 
-          // 最大購入数を超えていたら0
           const value =
-            Number(data[select.id]);
+            Number(
+              data[select.id]
+            );
 
 
           if (
             value >= 0 &&
-            value <= product.max
+            value <=
+            Number(
+              select.options[
+                select.options.length - 1
+              ].value
+            )
           ) {
 
             select.value =
@@ -745,8 +988,14 @@ function loadProgress() {
     );
 
 
+    // ========================================
     // 名前
-    if (data.name !== undefined) {
+    // ========================================
+
+    if (
+      data.name !==
+      undefined
+    ) {
 
       document.getElementById(
         "name"
@@ -756,8 +1005,14 @@ function loadProgress() {
     }
 
 
+    // ========================================
     // メイ
-    if (data.firstname !== undefined) {
+    // ========================================
+
+    if (
+      data.firstname !==
+      undefined
+    ) {
 
       document.getElementById(
         "firstname"
@@ -767,8 +1022,14 @@ function loadProgress() {
     }
 
 
+    // ========================================
     // メール
-    if (data.email !== undefined) {
+    // ========================================
+
+    if (
+      data.email !==
+      undefined
+    ) {
 
       document.getElementById(
         "email"
@@ -778,8 +1039,41 @@ function loadProgress() {
     }
 
 
+    // ========================================
+    // お渡し時間
+    // ========================================
+
+    if (
+      data.pickupTime !==
+      undefined
+    ) {
+
+      const pickupTime =
+        document.getElementById(
+          "pickupTime"
+        );
+
+
+      if (
+        pickupTime
+      ) {
+
+        pickupTime.value =
+          data.pickupTime;
+
+      }
+
+    }
+
+
+    // ========================================
     // 同意
-    if (data.agree !== undefined) {
+    // ========================================
+
+    if (
+      data.agree !==
+      undefined
+    ) {
 
       document.getElementById(
         "agree"
@@ -787,7 +1081,6 @@ function loadProgress() {
         data.agree;
 
     }
-
 
   } catch (error) {
 
@@ -806,12 +1099,15 @@ function loadProgress() {
 // ========================================
 
 document
-  .getElementById("name")
+  .getElementById(
+    "name"
+  )
   .addEventListener(
     "input",
     () => {
 
       updateFullName();
+
       saveProgress();
 
     }
@@ -819,12 +1115,15 @@ document
 
 
 document
-  .getElementById("firstname")
+  .getElementById(
+    "firstname"
+  )
   .addEventListener(
     "input",
     () => {
 
       updateFullName();
+
       saveProgress();
 
     }
@@ -832,7 +1131,9 @@ document
 
 
 document
-  .getElementById("email")
+  .getElementById(
+    "email"
+  )
   .addEventListener(
     "input",
     () => {
@@ -844,7 +1145,9 @@ document
 
 
 document
-  .getElementById("agree")
+  .getElementById(
+    "agree"
+  )
   .addEventListener(
     "change",
     () => {
@@ -872,11 +1175,14 @@ form.addEventListener(
 
     // 送信前に更新
     updateFullName();
+
     calc();
 
 
     // 入力チェック
-    if (!form.checkValidity()) {
+    if (
+      !form.checkValidity()
+    ) {
 
       form.reportValidity();
 
@@ -892,6 +1198,7 @@ form.addEventListener(
     submitButton.disabled =
       true;
 
+
     submitButton.textContent =
       "送信中...";
 
@@ -903,15 +1210,21 @@ form.addEventListener(
     try {
 
       const formData =
-        new FormData(form);
+        new FormData(
+          form
+        );
 
 
       const response =
         await fetch(
           GAS_URL,
           {
-            method: "POST",
-            body: formData
+            method:
+              "POST",
+
+            body:
+              formData
+
           }
         );
 
@@ -950,14 +1263,15 @@ form.addEventListener(
         "注文が完了しました。ありがとうございます。";
 
 
-      // 送信後はボタンを無効
+      // 送信後はボタン無効
       submitButton.disabled =
         true;
 
-
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
 
       alert(
@@ -971,6 +1285,7 @@ form.addEventListener(
 
       submitButton.disabled =
         false;
+
 
       submitButton.textContent =
         "注文する";
@@ -1002,8 +1317,10 @@ window.addEventListener(
       submitButton.disabled =
         true;
 
+
       submitButton.textContent =
         "注文済み";
+
 
       message.textContent =
         "この端末ではすでに注文済みです。";
@@ -1023,6 +1340,7 @@ function clearData() {
   localStorage.removeItem(
     "orderData"
   );
+
 
   localStorage.removeItem(
     "ordered"
