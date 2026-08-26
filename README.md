@@ -361,118 +361,202 @@ function createProducts() {
   productsElement.appendChild(title);
 
 
-  products.forEach((product, index) => {
+  products.forEach(
+    (product, index) => {
 
-    const wrapper =
-      document.createElement("div");
+      const wrapper =
+        document.createElement("div");
 
-    wrapper.className =
-      "product";
-
-
-    // 商品名
-    const label =
-      document.createElement("label");
-
-    label.textContent =
-      `${product.name}（${product.price.toLocaleString()}円）`;
+      wrapper.className =
+        "product";
 
 
-    // ID
-    const id =
-      "product_" + index;
+      // ========================================
+      // 商品名
+      // ========================================
+
+      const label =
+        document.createElement("label");
 
 
-    label.setAttribute(
-      "for",
-      id
-    );
+      label.textContent =
+        `${product.name}（${product.price.toLocaleString()}円）`;
 
 
-    // セレクト
-    const select =
-      document.createElement("select");
-
-    select.id =
-      id;
-
-    select.name =
-      product.name;
+      const id =
+        "product_" + index;
 
 
-    // 0～最大購入数
-    for (
-      let i = 0;
-      i <= product.max;
-      i++
-    ) {
+      label.setAttribute(
+        "for",
+        id
+      );
 
-      const option =
-        document.createElement("option");
 
-      option.value =
-        i;
+      wrapper.appendChild(label);
 
-      option.textContent =
-        i;
 
-      if (i === 0) {
-        option.selected = true;
+      wrapper.appendChild(
+        document.createElement("br")
+      );
+
+
+      // ========================================
+      // 注文受付終了
+      // ========================================
+
+      if (product.soldOut) {
+
+        const soldOut =
+          document.createElement("span");
+
+
+        soldOut.textContent =
+          "現在、注文受付終了";
+
+
+        soldOut.style.fontWeight =
+          "bold";
+
+
+        wrapper.appendChild(
+          soldOut
+        );
+
+
+      } else {
+
+        // ========================================
+        // セレクトボックス
+        // ========================================
+
+        const select =
+          document.createElement("select");
+
+
+        select.id =
+          id;
+
+
+        select.name =
+          product.name;
+
+
+        // ========================================
+        // 最大購入可能数
+        // ========================================
+
+        let max =
+          product.max;
+
+
+        // 上限がある場合
+        // 残り数を超えないようにする
+        if (
+          product.remaining !== null
+        ) {
+
+          max =
+            Math.min(
+              max,
+              product.remaining
+            );
+
+        }
+
+
+        // ========================================
+        // 0～最大数
+        // ========================================
+
+        for (
+          let i = 0;
+          i <= max;
+          i++
+        ) {
+
+          const option =
+            document.createElement("option");
+
+
+          option.value =
+            i;
+
+
+          option.textContent =
+            i;
+
+
+          if (i === 0) {
+            option.selected = true;
+          }
+
+
+          select.appendChild(
+            option
+          );
+
+        }
+
+
+        // 個
+        const unit =
+          document.createTextNode(
+            " 個"
+          );
+
+
+        // ========================================
+        // イベント
+        // ========================================
+
+        select.addEventListener(
+          "change",
+          () => {
+
+            calc();
+
+            saveProgress();
+
+          }
+        );
+
+
+        select.addEventListener(
+          "input",
+          () => {
+
+            calc();
+
+            saveProgress();
+
+          }
+        );
+
+
+        wrapper.appendChild(
+          select
+        );
+
+
+        wrapper.appendChild(
+          unit
+        );
+
       }
 
-      select.appendChild(option);
+
+      productsElement.appendChild(
+        wrapper
+      );
+
+
+      productsElement.appendChild(
+        document.createElement("br")
+      );
 
     }
-
-
-    // 個
-    const unit =
-      document.createTextNode(" 個");
-
-
-    // イベント
-    select.addEventListener(
-      "change",
-      () => {
-
-        calc();
-        saveProgress();
-
-      }
-    );
-
-
-    select.addEventListener(
-      "input",
-      () => {
-
-        calc();
-        saveProgress();
-
-      }
-    );
-
-
-    wrapper.appendChild(label);
-
-    wrapper.appendChild(
-      document.createElement("br")
-    );
-
-    wrapper.appendChild(select);
-
-    wrapper.appendChild(unit);
-
-
-    productsElement.appendChild(
-      wrapper
-    );
-
-    productsElement.appendChild(
-      document.createElement("br")
-    );
-
-  });
+  );
 
 }
 
