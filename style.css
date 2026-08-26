@@ -76,6 +76,14 @@ select {
   font-size: 16px;
 }
 
+#pickupTime{
+  width: 150px;
+  height: 48px;
+  font-size: 18px;
+  text-align: center;
+}
+
+
 /* メール */
 input[type="email"] {
   width: 100%;
