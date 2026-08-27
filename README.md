@@ -1325,10 +1325,11 @@ form.addEventListener(
       );
 
 
-      alert(
-        "送信に失敗しました。\n" +
-        "時間をおいてもう一度お試しください。"
-      );
+     alert(
+  "送信に失敗しました。\n\n" +
+  "エラー内容：\n" +
+  error.message
+);
 
 
       sending = false;
