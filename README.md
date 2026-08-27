@@ -31,6 +31,11 @@
     action="https://script.google.com/macros/s/AKfycbxvnuEt100FzrflcktC54rBCuoMQ0Ce8kIFVu0QODpI4Kf3TRWU7Cx-9_Kz9DhnLoOMVA/exec"
     method="POST"
   >
+  <input
+  type="hidden"
+  name="注文ID"
+  id="orderId"
+>
 
     <div class="nearlyall">
 
@@ -274,6 +279,52 @@
 
 <script>
 
+  
+// ========================================
+// 固有注文ID
+// ========================================
+
+function getOrderId() {
+
+  let orderId =
+    localStorage.getItem("orderId");
+
+  // 初回アクセス
+  if (!orderId) {
+
+    orderId =
+      crypto.randomUUID();
+
+    localStorage.setItem(
+      "orderId",
+      orderId
+    );
+
+  }
+
+  return orderId;
+
+}
+
+
+// ========================================
+// 注文IDをフォームに設定
+// ========================================
+
+function setOrderId() {
+
+  const orderId =
+    getOrderId();
+
+  document.getElementById(
+    "orderId"
+  ).value =
+    orderId;
+
+}
+
+
+setOrderId();
 
 // ========================================
 // GAS URL
