@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-日時
+"日時"
   <meta charset="UTF-8">
 
   <title>商品購入フォーム</title>
