@@ -1394,9 +1394,7 @@ function clearData() {
   );
 
 
-  localStorage.removeItem(
-    "ordered"
-  );
+  
 
 
   location.reload();
