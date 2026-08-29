@@ -1283,6 +1283,46 @@ form.addEventListener(
       const data =
         await response.json();
 
+      // ========================================
+// イベント番号チェック
+// ========================================
+
+const currentEventVersion =
+  String(
+    data.eventVersion || "1"
+  );
+
+const savedEventVersion =
+  localStorage.getItem(
+    "eventVersion"
+  );
+
+
+// イベントが変わっていたら
+// 前回の注文状態をリセット
+if (
+  savedEventVersion &&
+  savedEventVersion !==
+  currentEventVersion
+) {
+
+  localStorage.removeItem(
+    "ordered"
+  );
+
+  localStorage.removeItem(
+    "orderData"
+  );
+
+}
+
+
+// 現在のイベント番号を保存
+localStorage.setItem(
+  "eventVersion",
+  currentEventVersion
+);
+
 
       if (
         data.result !==
